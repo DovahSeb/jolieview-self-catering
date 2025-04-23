@@ -1,0 +1,32 @@
+<section class="px-6 py-16 max-w-4xl mx-auto text-left">
+    <h2 class="text-3xl md:text-4xl font-semibold text-teal-700 mb-10 font-serif text-center">
+      Frequently Asked Questions
+    </h2>
+  
+    @for (faq of faqs; track $index) {
+      <div
+        class="border-b border-teal-200 py-4 transition-all duration-300"
+      >
+        <button
+          (click)="toggle($index)"
+          class="w-full flex justify-between items-center text-left text-lg font-medium text-teal-800 focus:outline-none"
+        >
+          <span>{{ faq.question }}</span>
+          <svg
+            [class.rotate-180]="expandedIndex === $index"
+            class="h-5 w-5 transform transition-transform duration-300 text-teal-600"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+  
+        @if(expandedIndex === $index){
+            <div class="mt-3 text-gray-600 text-base leading-relaxed animate-fade-in-down">
+                {{ faq.answer }}
+            </div>
+        }
+      </div>
+    }
+  </section>

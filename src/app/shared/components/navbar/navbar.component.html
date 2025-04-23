@@ -5,7 +5,7 @@
     </a>
 
     <ul class="hidden md:flex gap-6 text-gray-700 font-medium">
-      <li><a routerLink="/" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">Home</a></li>
+      <li><a routerLink="/" routerLinkActive="text-teal-600" [routerLinkActiveOptions]="{ exact: true }" class="hover:text-teal-500 transition">Home</a></li>
       <li><a routerLink="/accommodation" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">Accommodation</a></li>
       <li><a routerLink="/gallery" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">Gallery</a></li>
       <li><a routerLink="/faq" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">FAQ</a></li>
