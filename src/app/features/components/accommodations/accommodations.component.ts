@@ -26,7 +26,7 @@ export class AccommodationsComponent {
       capacity: 'Up to 6 guests',
       description:
         'The Family Apartment is ideal for larger groups or families. It includes two sleeping areas, a large terrace, and direct garden access for a serene tropical stay.',
-      image: '/images/img_family_apt.jpg',
+      image: '/images/img_family_apt1.jpg',
     },
   ];
 }
