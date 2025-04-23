@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-accommodations',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './accommodations.component.html',
   styleUrl: './accommodations.component.css'
 })
@@ -11,30 +12,21 @@ export class AccommodationsComponent {
   apartments = [
     {
       id: 1,
-      name: 'Ocean View Studio',
+      name: 'One-Bedroom Apartment',
+      surface: '45m²',
+      capacity: 'Up to 3 guests',
       description:
-        'Perfect for couples, this cozy studio features a private balcony with breathtaking views of the Indian Ocean.',
-      surface: '35m²',
-      capacity: '2 guests',
-      image: 'assets/images/studio.jpg',
+        'Our cozy one-bedroom apartment is perfect for couples or solo travelers. Enjoy comfort and privacy with a fully equipped kitchen, private terrace, and breathtaking island views.',
+      image: '/images/img_one_bedroom.jpg',
     },
     {
       id: 2,
-      name: '1-Bedroom Apartment',
+      name: 'Two Bedroom Family Apartment',
+      surface: '80m²',
+      capacity: 'Up to 6 guests',
       description:
-        'Ideal for solo travelers or pairs, our one-bedroom apartment includes a full kitchen and tropical garden access.',
-      surface: '50m²',
-      capacity: '2–3 guests',
-      image: 'assets/images/1bedroom.jpg',
-    },
-    {
-      id: 3,
-      name: '2-Bedroom Family Suite',
-      description:
-        'Spacious and family-friendly, this suite offers two bedrooms, a living area, and a veranda surrounded by lush greenery.',
-      surface: '75m²',
-      capacity: '4 guests',
-      image: 'assets/images/2bedroom.jpg',
+        'The Family Apartment is ideal for larger groups or families. It includes two sleeping areas, a large terrace, and direct garden access for a serene tropical stay.',
+      image: '/images/img_family_apt.jpg',
     },
   ];
 }
