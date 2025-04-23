@@ -7,6 +7,10 @@ export const routes: Routes = [
         component: HomeComponent
       },
       {
+        path: 'accommodations',
+        loadComponent: () => import('./features/components/accommodations/accommodations.component').then(m => m.AccommodationsComponent),
+      },
+      {
         path: 'faq',
         loadComponent: () => import('./features/components/faq/faq.component').then(m => m.FaqComponent),
       },
