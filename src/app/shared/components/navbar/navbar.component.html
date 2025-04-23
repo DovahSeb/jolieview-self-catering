@@ -1,19 +1,17 @@
-<nav class="w-full z-50 bg-white shadow-sm fixed top-0 left-0">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="/" class="text-xl font-bold text-teal-600 tracking-wider hover:scale-105 transition-transform duration-300">
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="logo">
       Jolie View Self-Catering Apartments
     </a>
-
-    <ul class="hidden md:flex gap-6 text-gray-700 font-medium">
-      <li><a routerLink="/" routerLinkActive="text-teal-600" [routerLinkActiveOptions]="{ exact: true }" class="hover:text-teal-500 transition">Home</a></li>
-      <li><a routerLink="/accommodations" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">Accommodation</a></li>
-      <li><a routerLink="/gallery" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">Gallery</a></li>
-      <li><a routerLink="/faq" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">FAQ</a></li>
-      <li><a routerLink="/contact" routerLinkActive="text-teal-600" class="hover:text-teal-500 transition">Contact</a></li>
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/accommodations" routerLinkActive="active">Accommodation</a></li>
+      <li><a routerLink="/gallery" routerLinkActive="active">Gallery</a></li>
+      <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
     </ul>
-
     <!-- Mobile Menu Button -->
-    <button class="md:hidden z-50 text-3xl text-teal-600" (click)="toggleMenu()">
+    <button class="menu-toggle" (click)="toggleMenu()">
       @if(!isMenuOpen()){
         <span>☰</span>
       }
@@ -22,17 +20,18 @@
       }
     </button>
   </div>
-    <!-- Slide Drawer -->
-  <div class="fixed top-0 right-0 h-full w-2/3 max-w-xs bg-white shadow-lg transform transition-transform duration-300 md:hidden" [ngClass]="{
-    'translate-x-0': isMenuOpen(),
-    'translate-x-full': !isMenuOpen()
+
+  <!-- Slide Drawer -->
+  <div class="mobile-drawer" [ngClass]="{
+    'open': isMenuOpen(),
+    'closed': !isMenuOpen()
   }">
-    <div class="px-6 py-8 space-y-6 text-gray-700 font-medium">
-      <a routerLink="/" (click)="closeMenu()" class="block hover:text-teal-600">Home</a>
-      <a routerLink="/accommodation" (click)="closeMenu()" class="block hover:text-teal-600">Accommodation</a>
-      <a routerLink="/gallery" (click)="closeMenu()" class="block hover:text-teal-600">Gallery</a>
-      <a routerLink="/faq" (click)="closeMenu()" class="block hover:text-teal-600">FAQ</a>
-      <a routerLink="/contact" (click)="closeMenu()" class="block hover:text-teal-600">Contact</a>
+    <div class="mobile-links">
+      <a routerLink="/" (click)="closeMenu()">Home</a>
+      <a routerLink="/accommodation" (click)="closeMenu()">Accommodation</a>
+      <a routerLink="/gallery" (click)="closeMenu()">Gallery</a>
+      <a routerLink="/faq" (click)="closeMenu()">FAQ</a>
+      <a routerLink="/contact" (click)="closeMenu()">Contact</a>
     </div>
   </div>
 </nav>
