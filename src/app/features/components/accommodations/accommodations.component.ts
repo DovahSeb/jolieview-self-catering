@@ -17,7 +17,7 @@ export class AccommodationsComponent {
       capacity: 'Up to 3 guests',
       description:
         'Our cozy one-bedroom apartment is perfect for couples or solo travelers. Enjoy comfort and privacy with a fully equipped kitchen, private terrace, and breathtaking island views.',
-      image: '/images/img_one_bedroom.jpg',
+      image: 'images/img_one_bedroom.jpg',
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export class AccommodationsComponent {
       capacity: 'Up to 6 guests',
       description:
         'The Family Apartment is ideal for larger groups or families. It includes two sleeping areas, a large terrace, and direct garden access for a serene tropical stay.',
-      image: '/images/img_family_apt1.jpg',
+      image: 'images/img_family_apt1.jpg',
     },
   ];
 }

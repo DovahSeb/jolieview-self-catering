@@ -11,9 +11,9 @@ import { Component, signal } from '@angular/core';
 export class GalleryComponent {
 
   private seychellesImages = [
-    '/images/img1.jpg',
-    '/images/img2.jpg',
-    '/images/img1.jpg',
+    'images/img1.jpg',
+    'images/img2.jpg',
+    'images/img1.jpg',
   ];
 
   private oneBedroomImages = [
@@ -23,9 +23,9 @@ export class GalleryComponent {
   ];
 
   private familyApartmentImages = [
-    '/images/img_family_apt1.jpg',
-    '/images/img_family_apt2.jpg',
-    '/images/img_family_apt3.jpg',
+    'images/img_family_apt1.jpg',
+    'images/img_family_apt2.jpg',
+    'images/img_family_apt3.jpg',
   ];
 
 // Signals
