@@ -1,14 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faXmark, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.css'
 })
 export class GalleryComponent {
+  faXmark = faXmark;
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
 
   private seychellesImages = [
     'images/img1.jpg',
@@ -28,40 +33,39 @@ export class GalleryComponent {
     'images/img_family_apt3.jpg',
   ];
 
-// Signals
-selectedImage = signal<string | null>(null);
-imageList = signal<string[]>([]);
-selectedIndex = signal<number>(0);
+  selectedImage = signal<string | null>(null);
+  imageList = signal<string[]>([]);
+  selectedIndex = signal<number>(0);
 
-seychelles = () => this.seychellesImages;
-oneBedroom = () => this.oneBedroomImages;
-familyApartment = () => this.familyApartmentImages;
+  seychelles = () => this.seychellesImages;
+  oneBedroom = () => this.oneBedroomImages;
+  familyApartment = () => this.familyApartmentImages;
 
-openLightbox(image: string) {
-  const list = [...this.seychellesImages, ...this.oneBedroomImages, ...this.familyApartmentImages];
-  this.imageList.set(list);
-  this.selectedIndex.set(list.indexOf(image));
-  this.selectedImage.set(image);
-}
+  openLightbox(image: string) {
+    const list = [...this.seychellesImages, ...this.oneBedroomImages, ...this.familyApartmentImages];
+    this.imageList.set(list);
+    this.selectedIndex.set(list.indexOf(image));
+    this.selectedImage.set(image);
+  }
 
-closeLightbox() {
-  this.selectedImage.set(null);
-  this.selectedIndex.set(0);
-}
+  closeLightbox() {
+    this.selectedImage.set(null);
+    this.selectedIndex.set(0);
+  }
 
-isLightboxOpen() {
-  return this.selectedImage() !== null;
-}
+  isLightboxOpen() {
+    return this.selectedImage() !== null;
+  }
 
-previousImage() {
-  const index = (this.selectedIndex() - 1 + this.imageList().length) % this.imageList().length;
-  this.selectedIndex.set(index);
-  this.selectedImage.set(this.imageList()[index]);
-}
+  previousImage() {
+    const index = (this.selectedIndex() - 1 + this.imageList().length) % this.imageList().length;
+    this.selectedIndex.set(index);
+    this.selectedImage.set(this.imageList()[index]);
+  }
 
-nextImage() {
-  const index = (this.selectedIndex() + 1) % this.imageList().length;
-  this.selectedIndex.set(index);
-  this.selectedImage.set(this.imageList()[index]);
-}
+  nextImage() {
+    const index = (this.selectedIndex() + 1) % this.imageList().length;
+    this.selectedIndex.set(index);
+    this.selectedImage.set(this.imageList()[index]);
+  }
 }
