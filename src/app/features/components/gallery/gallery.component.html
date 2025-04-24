@@ -25,7 +25,13 @@
   <!-- Filtered Images Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     @for (img of filteredImages(); track $index) {
-      <img [src]="img" alt="Gallery image" (click)="openLightbox(img)" class="cursor-zoom-in rounded-xl h-64 w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105 hover:brightness-90 shadow-md"/>
+      <div class="relative group cursor-pointer rounded-xl h-64 w-full overflow-hidden shadow-md" (click)="openLightbox(img)">
+        <img [src]="img" alt="Gallery image" class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-90"/>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-50 transition-opacity duration-300">
+          <span class="text-white text-sm sm:text-base font-semibold">View Image</span>
+        </div>
+      </div>
     }
   </div>
 </div>
