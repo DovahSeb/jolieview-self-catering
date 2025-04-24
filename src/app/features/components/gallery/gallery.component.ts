@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faXmark, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,9 +22,9 @@ export class GalleryComponent {
   ];
 
   private oneBedroomImages = [
-    'https://source.unsplash.com/featured/?apartment,interior',
-    'https://source.unsplash.com/featured/?apartment,bedroom',
-    'https://source.unsplash.com/featured/?apartment,livingroom',
+    'images/img_one_bedroom1.jpg',
+    'images/img_one_bedroom2.jpg',
+    'images/img_one_bedroom3.jpg',
   ];
 
   private familyApartmentImages = [
@@ -33,6 +33,8 @@ export class GalleryComponent {
     'images/img_family_apt3.jpg',
   ];
 
+  activeCategory = signal<'all' | 'seychelles' | 'oneBedroom' | 'familyApartment'>('all');
+
   selectedImage = signal<string | null>(null);
   imageList = signal<string[]>([]);
   selectedIndex = signal<number>(0);
@@ -40,6 +42,22 @@ export class GalleryComponent {
   seychelles = () => this.seychellesImages;
   oneBedroom = () => this.oneBedroomImages;
   familyApartment = () => this.familyApartmentImages;
+
+  filteredImages = computed(() => {
+    const category = this.activeCategory();
+    if (category === 'seychelles') return this.seychellesImages;
+    if (category === 'oneBedroom') return this.oneBedroomImages;
+    if (category === 'familyApartment') return this.familyApartmentImages;
+    return [
+      ...this.seychellesImages,
+      ...this.oneBedroomImages,
+      ...this.familyApartmentImages,
+    ];
+  });
+
+  setCategory(category: 'all' | 'seychelles' | 'oneBedroom' | 'familyApartment') {
+    this.activeCategory.set(category);
+  }
 
   openLightbox(image: string) {
     const list = [...this.seychellesImages, ...this.oneBedroomImages, ...this.familyApartmentImages];
