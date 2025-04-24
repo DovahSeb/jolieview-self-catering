@@ -9,5 +9,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  email = 'contact@jolieviewseychelles.com'
   year = new Date().getFullYear();
 }
