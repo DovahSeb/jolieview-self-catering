@@ -17,7 +17,7 @@ export class AccommodationsComponent {
       capacity: 'Up to 3 guests',
       description:
         'Our cozy one-bedroom apartment is perfect for couples or solo travelers. Enjoy comfort and privacy with a fully equipped kitchen, private terrace, and breathtaking island views.',
-      image: 'images/img_one_bedroom.jpg',
+      image: 'images/img_one_bedroom1.jpg',
     },
     {
       id: 2,
