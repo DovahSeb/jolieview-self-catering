@@ -43,6 +43,10 @@ export class FaqComponent {
     },
     {
       question: 'Can I have visitors?',
+      answer: 'Yes, visitors are allowed. Please inform management in advance for security and safety reasons.'
+    },
+    {
+      question: 'Do you provide breakfast?',
       answer: 'We do not offer meals. However, a welcome pack with basic essentials can be arranged upon request.'
     },
     {
