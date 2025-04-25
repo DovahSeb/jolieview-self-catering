@@ -29,7 +29,7 @@ export class ContactComponent {
   sendEmail() {
     const { name, email, message } = this.contactForm;
 
-    if (!name && !email && !message) {
+    if (!name || !email || !message) {
       this.showValidation = true;
       setTimeout(() => {
         this.showValidation = false;
@@ -53,10 +53,6 @@ export class ContactComponent {
       }, 3000);
     },
       (error: EmailJSResponseStatus) => {
-        this.showValidation = true;
-        setTimeout(() => {
-          this.showValidation = false;
-        }, 2000);
         console.log('FAILED!', error.text);
       }
     );
