@@ -15,16 +15,6 @@ export class GalleryComponent {
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
 
-  private seychellesImages = [
-    'images/img1.jpg',
-    'images/img2.jpg',
-    'images/img3.jpg',
-    'images/img4.jpg',
-    'images/img5.jpg',
-    'images/img6.jpg',
-    'images/img7.jpeg',
-  ];
-
   private jolieViewImages = [
     'images/jolie_view1.jpg',
     'images/jolie_view2.jpg',
@@ -45,37 +35,47 @@ export class GalleryComponent {
     'images/img_family_apt3.jpg',
   ];
 
-  activeCategory = signal<'all' | 'seychelles' | 'jolieView' | 'oneBedroom' | 'familyApartment'>('all');
+  private seychellesImages = [
+    'images/img1.jpg',
+    'images/img2.jpg',
+    'images/img3.jpg',
+    'images/img4.jpg',
+    'images/img5.jpg',
+    'images/img6.jpg',
+    'images/img7.jpeg',
+  ];
+
+  activeCategory = signal<'all' | 'jolieView' | 'oneBedroom' | 'familyApartment' | 'seychelles'>('all');
 
   selectedImage = signal<string | null>(null);
   imageList = signal<string[]>([]);
   selectedIndex = signal<number>(0);
 
-  seychelles = () => this.seychellesImages;
   jolieView = () => this.jolieViewImages;
   oneBedroom = () => this.oneBedroomImages;
   familyApartment = () => this.familyApartmentImages;
+  seychelles = () => this.seychellesImages;
 
   filteredImages = computed(() => {
     const category = this.activeCategory();
-    if (category === 'seychelles') return this.seychellesImages;
     if (category === 'jolieView') return this.jolieViewImages;
     if (category === 'oneBedroom') return this.oneBedroomImages;
     if (category === 'familyApartment') return this.familyApartmentImages;
+    if (category === 'seychelles') return this.seychellesImages;
     return [
-      ...this.seychellesImages,
       ...this.jolieViewImages,
       ...this.oneBedroomImages,
       ...this.familyApartmentImages,
+      ...this.seychellesImages,
     ];
   });
 
-  setCategory(category: 'all' | 'seychelles' | 'jolieView' | 'oneBedroom' | 'familyApartment') {
+  setCategory(category: 'all' | 'jolieView' | 'oneBedroom' | 'familyApartment' | 'seychelles') {
     this.activeCategory.set(category);
   }
 
   openLightbox(image: string) {
-    const list = [...this.seychellesImages, ...this.jolieViewImages, ...this.oneBedroomImages, ...this.familyApartmentImages];
+    const list = [...this.jolieViewImages, ...this.oneBedroomImages, ...this.familyApartmentImages, ...this.seychellesImages];
     this.imageList.set(list);
     this.selectedIndex.set(list.indexOf(image));
     this.selectedImage.set(image);

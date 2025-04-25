@@ -9,10 +9,6 @@
       All
     </button>
 
-    <button (click)="setCategory('seychelles')" [class.bg-teal-600]="activeCategory() === 'seychelles'" class="px-4 py-2 rounded-full text-sm font-medium transition hover:bg-teal-500 bg-gray-200 text-gray-700 hover:text-white">
-      Seychelles
-    </button>
-
     <button (click)="setCategory('jolieView')" [class.bg-teal-600]="activeCategory() === 'jolieView'" class="px-4 py-2 rounded-full text-sm font-medium transition hover:bg-teal-500 bg-gray-200 text-gray-700 hover:text-white">
       Jolie View 
     </button>
@@ -23,6 +19,10 @@
 
     <button (click)="setCategory('familyApartment')" [class.bg-teal-600]="activeCategory() === 'familyApartment'" class="px-4 py-2 rounded-full text-sm font-medium transition hover:bg-teal-500 bg-gray-200 text-gray-700 hover:text-white">
       Family Apartment
+    </button>
+
+    <button (click)="setCategory('seychelles')" [class.bg-teal-600]="activeCategory() === 'seychelles'" class="px-4 py-2 rounded-full text-sm font-medium transition hover:bg-teal-500 bg-gray-200 text-gray-700 hover:text-white">
+      Seychelles
     </button>
   </div>
 
