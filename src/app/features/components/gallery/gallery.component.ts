@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faXmark, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,6 +15,9 @@ export class GalleryComponent {
   faXmark = faXmark;
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
+
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   private jolieViewImages = [
     'images/jolie_view1.jpg',
@@ -46,7 +50,6 @@ export class GalleryComponent {
   ];
 
   activeCategory = signal<'all' | 'jolieView' | 'oneBedroom' | 'familyApartment' | 'seychelles'>('all');
-
   selectedImage = signal<string | null>(null);
   imageList = signal<string[]>([]);
   selectedIndex = signal<number>(0);
@@ -69,6 +72,16 @@ export class GalleryComponent {
       ...this.seychellesImages,
     ];
   });
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      const category = params['category'] as 'all' | 'jolieView' | 'oneBedroom' | 'familyApartment' | 'seychelles';
+      if (category) {
+        this.setCategory(category);
+        this.router.navigate([], { queryParams: {} });
+      }
+    });
+  }
 
   setCategory(category: 'all' | 'jolieView' | 'oneBedroom' | 'familyApartment' | 'seychelles') {
     this.activeCategory.set(category);

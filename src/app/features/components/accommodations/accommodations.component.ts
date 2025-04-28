@@ -12,6 +12,7 @@ export class AccommodationsComponent {
   apartments = [
     {
       id: 1,
+      category: 'oneBedroom',
       name: 'One-Bedroom Apartment',
       surface: '45m²',
       capacity: 'Up to 3 guests',
@@ -22,6 +23,7 @@ export class AccommodationsComponent {
     },
     {
       id: 2,
+      category: 'familyApartment',
       name: 'Two Bedroom Family Apartment',
       surface: '80m²',
       capacity: 'Up to 6 guests',
