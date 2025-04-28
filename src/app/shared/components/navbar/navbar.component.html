@@ -29,16 +29,22 @@
   </div>
 
   <!-- Slide Drawer -->
-  <div class="mobile-drawer" [ngClass]="{
-    'open': isMenuOpen(),
-    'closed': !isMenuOpen()
-  }">
+  <div class="mobile-drawer" [ngClass]="{ 'open': isMenuOpen(), 'closed': !isMenuOpen() }">
+    <div class="drawer-header">
+      <img src="images/logo_icon.png" alt="Jolie View Logo" class="drawer-logo">
+      <div class="drawer-tagline">Experience Paradise in Comfort</div>
+    </div>
     <div class="mobile-links">
-      <a routerLink="/" (click)="closeMenu()">Home</a>
-      <a routerLink="/accommodations" (click)="closeMenu()">Accommodation</a>
-      <a routerLink="/gallery" (click)="closeMenu()">Gallery</a>
-      <a routerLink="/faq" (click)="closeMenu()">FAQ</a>
-      <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/accommodations" routerLinkActive="active" (click)="closeMenu()">Accommodation</a>
+      <a routerLink="/gallery" routerLinkActive="active" (click)="closeMenu()">Gallery</a>
+      <a routerLink="/faq" routerLinkActive="active" (click)="closeMenu()">FAQ</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+    </div>
+    <div class="drawer-footer">
+      <p class="copyright">
+        &copy; {{ year }} Jolie View Self Catering Apartments
+      </p>
     </div>
   </div>
 </nav>

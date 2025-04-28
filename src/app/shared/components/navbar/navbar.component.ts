@@ -15,6 +15,7 @@ export class NavbarComponent {
   faBars = faBars;
   faXmark = faXmark;
   isScrolled = false;
+  year = new Date().getFullYear();
   private menuOpen = signal(false);
 
   isMenuOpen = () => this.menuOpen();

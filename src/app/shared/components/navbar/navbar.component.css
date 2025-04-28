@@ -96,33 +96,77 @@
   height: 100%;
   width: 66.666%;
   max-width: 300px;
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
   box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+  transform: translateX(100%) scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding-top: 4rem;
 }
 
 .mobile-drawer.open {
-  transform: translateX(0);
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.mobile-drawer.closed {
+  transform: translateX(100%);
+}
+
+.drawer-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.drawer-logo {
+  width: 60px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.drawer-tagline {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
 }
 
 .mobile-links {
-  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  font-weight: 500;
-  color: #374151;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .mobile-links a {
-  color: inherit;
+  font-size: 1.25rem;
+  color: #374151;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .mobile-links a:hover {
   color: teal;
+  transform: translateX(5px);
+}
+
+.mobile-links a.active {
+  color: teal;
+  font-weight: bold;
+}
+
+.drawer-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.drawer-footer p {
+  font-size: 0.8rem;
+  color: #999;
 }
 
 @media (max-width: 767px) {
