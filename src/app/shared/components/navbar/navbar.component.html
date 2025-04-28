@@ -1,7 +1,8 @@
 <nav class="navbar">
   <div class="navbar-container">
     <a href="/" class="logo">
-      Jolie View Self-Catering Apartments
+      <img src="images/logo_icon.png" alt="Jolie View Logo" class="logo-image">
+      <span class="logo-text">Jolie View Self-Catering Apartments</span>
     </a>
     <ul class="nav-links">
       <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
@@ -12,12 +13,18 @@
     </ul>
     <!-- Mobile Menu Button -->
     <button class="menu-toggle" (click)="toggleMenu()">
-      @if(!isMenuOpen()){
-        <span>☰</span>
-      }
-      @if(isMenuOpen()){
-        <span>✕</span>
-      }
+      <div class="icon-wrapper">
+        @if(!isMenuOpen()){
+          <span class="menu-icon">
+            <fa-icon [icon]="faBars"></fa-icon>
+          </span>
+        }
+        @if(isMenuOpen()){
+          <span class="menu-icon">
+            <fa-icon [icon]="faXmark"></fa-icon>
+          </span>
+        }
+      </div>
     </button>
   </div>
 
