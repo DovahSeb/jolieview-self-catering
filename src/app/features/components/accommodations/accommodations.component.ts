@@ -14,7 +14,7 @@ export class AccommodationsComponent {
       id: 1,
       category: 'oneBedroom',
       name: 'One-Bedroom Apartment',
-      surface: '45m²',
+      surfaceSizes: ['48.7m²', '58.5m²'],
       capacity: 'Up to 3 guests',
       description:
         'Our cozy one-bedroom apartment is perfect for couples or solo travelers. Enjoy comfort and privacy with a fully equipped kitchen, private terrace, and breathtaking island views.',
@@ -25,7 +25,7 @@ export class AccommodationsComponent {
       id: 2,
       category: 'familyApartment',
       name: 'Two Bedroom Family Apartment',
-      surface: '80m²',
+      surface: '100.6m²',
       capacity: 'Up to 6 guests',
       description:
         'The Two Bedroom Family Apartment is ideal for larger groups or families. It includes two sleeping areas, a large terrace for a serene tropical stay.',
