@@ -52,6 +52,9 @@ export class GalleryComponent {
     'images/img10.jpg',
     'images/img11.jpg',
     'images/img12.jpg',
+    'images/img13.jpg',
+    'images/img14.jpg',
+    'images/img15.jpg',
   ];
 
   activeCategory = signal<'all' | 'jolieView' | 'oneBedroom' | 'familyApartment' | 'seychelles'>('all');
