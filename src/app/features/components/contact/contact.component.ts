@@ -38,7 +38,7 @@ export class ContactComponent {
     }
 
     emailjs
-    .send('service_zx93o68', 'template_4sgse0k', { ...this.contactForm }, {
+    .send('service_x4el81o', 'template_4sgse0k', { ...this.contactForm }, {
         publicKey: '-rugXXE4tnGPhX6jj',
     })
     .then(() => {
