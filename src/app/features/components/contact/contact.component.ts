@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 
@@ -25,6 +25,7 @@ export class ContactComponent {
   contactEmail = 'contact@jolieviewseychelles.com'
   showSuccess = false;
   showValidation = false;
+  isLoading = false;
 
   sendEmail() {
     const { name, email, message } = this.contactForm;
@@ -36,6 +37,8 @@ export class ContactComponent {
       }, 2000);
       return;
     }
+
+    this.isLoading = true;
 
     emailjs
     .send('service_x4el81o', 'template_4sgse0k', { ...this.contactForm }, {
@@ -51,9 +54,11 @@ export class ContactComponent {
       setTimeout(() => {
         this.showSuccess = false;
       }, 3000);
+      this.isLoading = false;
     },
       (error: EmailJSResponseStatus) => {
         console.log('FAILED!', error.text);
+        this.isLoading = false;
       }
     );
   }
